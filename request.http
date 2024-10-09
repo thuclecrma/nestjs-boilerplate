@@ -1,0 +1,45 @@
+@host = http://localhost:3001
+@token = <access token>
+
+### list all users
+GET {{host}}/users
+
+### Create user
+POST {{host}}/auth/signup
+Content-Type: application/json
+
+{
+  "firstName": "Thuc 1",
+  "lastName": "Le",
+  "email": "Thuc_Le_1@mckinsey.com",
+  "password": "Testpassword@12345"
+}
+
+### Log in
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "Thuc_Le_1@mckinsey.com",
+  "password": "Testpassword@12345"
+}
+
+### Profile
+GET {{host}}/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Get user
+GET {{host}}/user/b1aea537-cdb3-419b-b39c-bbc740d952a6
+
+### Update user
+PATCH  {{host}}/user/b1aea537-cdb3-419b-b39c-bbc740d952a6
+Content-Type: application/json
+
+{
+  "firstName": "Thuc 4 updated"
+}
+
+
+### Delete user
+DELETE {{host}}/user/b1aea537-cdb3-419b-b39c-bbc740d952a6
